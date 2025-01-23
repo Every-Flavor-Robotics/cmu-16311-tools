@@ -24,7 +24,7 @@ fi
 TMP_DIR=$(mktemp -d)
 
 # Clone the repo to the temp directory
-git clone "$REPO_URL" "$TMP_DIR"
+git clone --recurse-submodules "$REPO_URL" "$TMP_DIR"
 
 
 # Move into the MotorGo Python dir and install the package
