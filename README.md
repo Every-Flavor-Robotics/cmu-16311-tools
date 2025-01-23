@@ -30,7 +30,7 @@ This repository compiles all of the software for setting up the MotorGo Plink Ed
 
 
 ## Installation
-We recommend using the latest Rasbperry Pi OS on your Raspberry Pi. Once the operating system is setup, you can install all of the tools by running this command
+We recommend using the latest Rasbperry Pi OS on your Raspberry Pi. You can setup Raspberry Pi OS using the RPi imager, available [here](https://www.raspberrypi.com/software/). Once the operating system is setup, you can install all of the tools by running this command
 
 ``` bash
 curl -s https://raw.githubusercontent.com/Every-Flavor-Robotics/cmu-16311-tools/refs/heads/main/install.sh | bash
