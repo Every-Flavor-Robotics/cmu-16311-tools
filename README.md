@@ -11,6 +11,8 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Example Code:](#example-code)
+- [Setup](#setup)
+- [VNC](#vnc)
 
 ---
 
@@ -28,7 +30,7 @@ This repository compiles all of the software for setting up the MotorGo Plink Ed
 
 
 ## Installation
-We recommend using Ubuntu 24.04 on your Raspberry Pi. Once the operating system is setup, you can install all of the tools by running this command
+We recommend using the latest Rasbperry Pi OS on your Raspberry Pi. Once the operating system is setup, you can install all of the tools by running this command
 
 ``` bash
 curl -s https://raw.githubusercontent.com/Every-Flavor-Robotics/cmu-16311-tools/refs/heads/main/install.sh | bash
@@ -40,3 +42,19 @@ The examples directory contains examples for using the various features of the M
 * Controlling motors
 * Reading data from the onboard IMU
 * Reading data from the light and range sensors
+
+## Setup
+
+After completing installation, you need to enable SPI, I2C, and VNC using raspi-config. Run:
+
+```bash
+sudo raspi-config
+```
+
+Navigate to `3 Interface Options`, enable VNC, SPI, and I2C.
+
+
+
+## VNC
+
+Follow the setup steps [here](https://www.raspberrypi.com/documentation/computers/remote-access.html#connect-to-a-vnc-server) to setup the VNC client.
