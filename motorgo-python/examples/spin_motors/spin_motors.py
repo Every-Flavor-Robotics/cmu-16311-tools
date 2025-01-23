@@ -12,11 +12,6 @@ def main():
     # Create a Plink object, the main interface to the MotorGo board
     plink = Plink()
 
-    # The first thing to set up for a Plink is the power supply voltage.
-    # This is the voltage you are providing to the Plink on the barrel jack.
-    # If this is the battery, make sure this is the charged voltage.
-    plink.power_supply_voltage = 9.0
-
     # The Plink object has 4 MotorChannel objects, corresponding to the 4 motor channels
     # on the board
     # You can access them directly: plink.channel1
@@ -24,15 +19,7 @@ def main():
     left_motor = plink.channel1
     right_motor = plink.channel2
 
-    # Next, you need to set the motor voltage limit.
-    # This is the maximum voltage your motor channels will output to protect the motors.
-    # The voltage limit is 0 by default, which means the motors will not move if this is not set.
-    left_motor.motor_voltage_limit = 6.0
-    right_motor.motor_voltage_limit = 6.0
-    plink.channel3.motor_voltage_limit = 6.0
-    plink.channel4.motor_voltage_limit = 6.0
-
-    # Finally, connect to the MotorGo board and psuh the configuration
+    # Finally, connect to the MotorGo board and push the configuration
     plink.connect()
 
     # You can configure how you want to control the motor channels.
