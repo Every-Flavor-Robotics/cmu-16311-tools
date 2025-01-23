@@ -1,23 +1,35 @@
-<h1 align="center">📘 | EFR X CMU: 16-311 Tools | 📘 </h1>
+<h1 align="center">📘 | EFR x CMU — MotorGo Plink tools for 16-311 | 📘 </h1>
 
 <p align="center">
-  Every Flavor Robotics software suite for Carnegie Mellon University's 16-311 Intro to Robotics class
+  Tools for the MotorGo Plink education kits, customized for 16-311
 </p>
 
 ---
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
-- [Project Objectives](#project-objectives)
+- [Introduction](#introduction)
 - [Installation](#installation)
-  - [Install in editable mode:](#install-in-editable-mode)
-- [Usage](#usage)
-- [Creating Plugins](#creating-plugins)
 
 ---
 
 
+## Introduction
+
+This repository compiles all of the software for setting up the MotorGo Plink education kits for the 16-311 projects:
+
+* Custom MotorGo Python driver
+  * Locked voltage limits MotorGo Red motors
+  * Locked power supply voltage
+* VL53L4CX range sensor driver
+* BH1750 light sensor driver
 
 
 
+## Installation
+We recommend using Ubuntu 24.04 on your Raspberry Pi. Once the operating system is setup, you can install all of the tools by running this command
+
+``` bash
 curl -s https://raw.githubusercontent.com/Every-Flavor-Robotics/cmu-16311-tools/refs/heads/main/install.sh | bash
+```
+
