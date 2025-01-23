@@ -1,4 +1,4 @@
-<h1 align="center">📘 | EFR x CMU — MotorGo Plink tools for 16-311 | 📘 </h1>
+<h1 align="center">📘 | MotorGo Plink Tools for CMU 16-311 | 📘 </h1>
 
 <p align="center">
   Tools for the MotorGo Plink education kits, customized for 16-311
