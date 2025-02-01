@@ -16,6 +16,7 @@
   - [Power Control Mode](#power-control-mode)
   - [Velocity Control Mode](#velocity-control-mode)
 - [Reading IMU Data](#reading-imu-data)
+- [Reading Light and Range Sensor Data](#reading-light-and-range-sensor-data)
 - [Examples](#examples)
 
 
@@ -156,6 +157,55 @@ You can also read the gravity vector, relative to the MotorGo board, as a numpy.
 
 ```python
 gravity_vector = imu.gravity_vector
+```
+
+## Reading Light and Range Sensor Data
+
+Since the QWIIC ports on the MotorGo are connected to the Raspberry Pi I2C bus, you can access the sensors directly from the Raspberry Pi.
+
+Once you have connected the sensor, you can confirm that the Raspberry Pi can detect the sensor by running the following command:
+
+```bash
+i2cdetect -y 1
+```
+
+You should see the address of the sensor in the output. For example, the BH1750 light sensor has an address of `0x23`.
+
+You can read the light sensor data in Python with the following code:
+
+```python
+import board
+import adafruit_bh1750
+
+i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
+sensor = adafruit_bh1750.BH1750(i2c)
+
+while True:
+    print("%.2f Lux" % sensor.lux)
+    time.sleep(0.2)
+```
+
+You can read the range sensor data in Python with the following code:
+
+```python
+import board
+import adafruit_vl53l4cx
+
+i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
+
+vl53 = adafruit_vl53l4cx.VL53L4CX(i2c)
+
+print("VL53L4CX Simple Test.")
+
+vl53.start_ranging()
+
+while True:
+    while not vl53.data_ready:
+        pass
+    vl53.clear_interrupt()
+    print("Distance: {} cm".format(vl53.distance))
 ```
 
 ## Examples
