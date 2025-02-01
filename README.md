@@ -1,22 +1,20 @@
 <h1 align="center">📘 | CMU 16-311: MotorGo Plink API Reference | 📘 </h1>
 
 <p align="center">
-    API Guide for the MotorGo Plink Education Kit
+    Complete guide to using all of the features of the MotorGo Plink Python API
 </p>
 
 ---
-
-This guide will walk you through using all of the features of the MotorGo Plink Python API.
 
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
+- [Accessing Motor Channels](#accessing-motor-channels)
 - [Reading Encoder Data](#reading-encoder-data)
 - [Controlling Motors](#controlling-motors)
-  - [Motor Control Modes](#motor-control-modes)
-    - [Power Control Mode](#power-control-mode)
-    - [Velocity Control Mode](#velocity-control-mode)
+  - [Power Control Mode](#power-control-mode)
+  - [Velocity Control Mode](#velocity-control-mode)
 - [Reading IMU Data](#reading-imu-data)
 
 
@@ -49,10 +47,8 @@ To begin communication, run the following command:
 plink.connect()
 ```
 
-
-## Reading Encoder Data
-
-The encoder data can be accessed from the `MotorChannel` objects in the `Plink` object. The `MotorChannel` objects are accessible as:
+## Accessing Motor Channels
+The `MotorChannel` objects are the primary interface for controlling the motors and reading their corresponding encoder data. The `MotorChannel` objects are accessible as:
 
 ```python filename="python"
 plink.channel1
@@ -67,6 +63,10 @@ You can save a reference to the `MotorChannel` objects as local variables for co
 left_drive_wheel = plink.channel1
 right_drive_wheel = plink.channel2
 ```
+
+## Reading Encoder Data
+
+The encoder data can be accessed from the `MotorChannel` objects in the `Plink` object. The `MotorChannel` objects are accessible as:
 
 To read the encoder data, simply access the `position` and `velocity` attributes of the `MotorChannel` object:
 
@@ -85,28 +85,9 @@ Note that the forward direction of the position is dependent on the direction th
 
 ## Controlling Motors
 
-Each motor channel can be controlled by it's corresponding `MotorChannel` object in the `Plink` object. The `MotorChannel` objects can be accessed as:
-
-```python filename="python"
-plink.channel1
-plink.channel2
-plink.channel3
-plink.channel4
-```
-
-
-You can save a reference to the `MotorChannel` objects as local variables for convenience. For example:
-
-```python filename="python"
-left_drive_wheel = plink.channel1
-right_drive_wheel = plink.channel2
-```
-
-### Motor Control Modes
-
 The Plink supports two motor control modes: `ControlMode.POWER` and `ControlMode.VELOCITY`.
 
-#### Power Control Mode
+### Power Control Mode
 In power control mode, the motor is controlled by directly setting the power level. The power level is a value between -1.0 and 1.0, where -1.0 is full reverse, 0.0 is stopped, and 1.0 is full forward. To configure a motor channel to power control mode, set the `control_mode` attribute of the `MotorChannel` object to `ControlMode.POWER`.
 
 ```python filename="python"
@@ -121,7 +102,7 @@ To set the power level of the motor, set the `power` attribute of the `MotorChan
 left_drive_wheel.power = 0.5
 ```
 
-#### Velocity Control Mode
+### Velocity Control Mode
 In velocity control mode, the motor is controlled by setting the desired velocity in rad/s. To configure a motor channel to velocity control mode, set the `control_mode` attribute of the `MotorChannel` object to `ControlMode.VELOCITY`.
 
 ```python filename="python"
