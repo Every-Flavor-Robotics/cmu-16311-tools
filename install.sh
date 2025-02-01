@@ -15,7 +15,7 @@ VL53L4CX_DIR="Adafruit_CircuitPython_VL53L4CX"
 # If python version is 3.12 or greater, add --break-system-packages flag
 EXTRA_PIP_FLAGS=""
 # Check if python version is 3.12 or greater
-if python -c 'import sys; exit(not (sys.version_info.major == 3 and sys.version_info.minor >= 12))'; then
+if python -c 'import sys; exit(not (sys.version_info.major == 3 and sys.version_info.minor >= 11))'; then
     # Add --break-system-packages flag to install command
     EXTRA_PIP_FLAGS="--break-system-packages"
 fi
