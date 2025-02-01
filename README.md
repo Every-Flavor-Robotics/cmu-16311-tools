@@ -16,6 +16,7 @@
   - [Power Control Mode](#power-control-mode)
   - [Velocity Control Mode](#velocity-control-mode)
 - [Reading IMU Data](#reading-imu-data)
+- [Examples](#examples)
 
 
 ## Getting Started
@@ -157,3 +158,6 @@ You can also read the gravity vector, relative to the MotorGo board, as a numpy.
 gravity_vector = imu.gravity_vector
 ```
 
+## Examples
+
+You can find full examples of using the MotorGo Plink Python API in the [`examples`](examples/) directory of this repository.
