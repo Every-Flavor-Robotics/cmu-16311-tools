@@ -73,8 +73,8 @@ The encoder data can be accessed from the `MotorChannel` objects in the `Plink` 
 To read the encoder data, simply access the `position` and `velocity` attributes of the `MotorChannel` object:
 
 ```python filename="python"
-left_position = left_drive_wheel.position
-left_velocity = left_drive_wheel.velocity
+left_position = left_drive_wheel.position # Position, in radians
+left_velocity = left_drive_wheel.velocity # Velocity, in radians/sec
 
 channel_3_position = plink.channel3.position
 channel_3_velocity = plink.channel3.velocity
