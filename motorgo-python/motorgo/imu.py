@@ -58,6 +58,7 @@ class IMU:
     def _update(self, gyro: np.ndarray, accel: np.ndarray, mag: np.ndarray):
 
         gyro = self.offset.update(gyro)
+        gyro = np.degrees(gyro)  # Convert to degrees/s
 
         # Update internal state
         with self.lock:
